@@ -30,12 +30,25 @@ function onRemoveBook(bookId) {
 }
 
 function onUpdateBook(bookId){
-    const newPrice = +prompt('Enter the new price')
-    updatePrice(bookId, newPrice) 
+    const UpdatePrice = +prompt('Enter the new price')
+    updatePrice(bookId, UpdatePrice) 
 }
 
-function updatePrice(bookId, newPrice) {
+function updatePrice(bookId, UpdatePrice) {
    const book = gBooks.find(book=>book.id === bookId)
-    book.price = newPrice
+    book.price = UpdatePrice
     renderBooksTable()
+}
+
+function onAddBook (){
+   const newTitle = prompt ('Enter the title of the book')
+   const newPrice = prompt ('Enter the price of the book')
+   const book = {
+    id: 'b' + Date.now % 1000,
+    title: newTitle,
+    price: newPrice,
+    imgUrl:newTitle +'.jpg'
+   }
+   gBooks.unshift(book)
+   renderBooksTable()
 }
