@@ -52,7 +52,7 @@ function onAddBook() {
 
     //MODEL
     const book = {
-        id: 'b' + Date.now % 1000,
+        id: makeId(),
         title: newTitle,
         price: newPrice,
         imgUrl: newTitle + '.jpg'
@@ -75,6 +75,9 @@ function onShowBookDetails(ev, bookId) {
     elModal.classList.remove('hidden') 
 }
 
-
+function onCloseModal(){
+    const elModal = document.querySelector('.details-modal')
+    elModal.classList.add('hidden') 
+}
 
 
