@@ -11,3 +11,6 @@ function getBooks(){
     return gBooks
 }
 
+function getBooksById(bookId){
+    return gBooks.find(book => book.id === bookId)
+}

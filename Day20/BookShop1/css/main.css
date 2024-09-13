@@ -43,8 +43,24 @@ button {
     border-color:   rgb(198, 198, 241) ;
 }
 
+.details {
+    background-color: rgb(231, 163, 14);
+    border-color:   rgb(231, 163, 14) ;
+}
+
 .add{
     margin-top: 10px;
     background-color: pink;
     border-color: pink;
 }
+
+.details-modal{
+    background-color: lightblue;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
