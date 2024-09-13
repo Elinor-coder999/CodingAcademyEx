@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(196, 190, 190);
+}
+
+thead {
+    background-color: aqua;
+}
+
+button {
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.read {
+    background-color: aquamarine;
+    border-color: aquamarine ;
+}
+
+.update{
+    background-color: rgb(33, 176, 219);
+    border-color:  rgb(33, 176, 219) ;
+}
+
+.delete{
+    background-color: rgb(198, 198, 241);
+    border-color:   rgb(198, 198, 241) ;
+}
