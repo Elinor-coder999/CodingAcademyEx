@@ -7,10 +7,29 @@ var gBooks = [
 ]
 
 function getBooks(){
-
     return gBooks
 }
 
 function getBooksById(bookId){
     return gBooks.find(book => book.id === bookId)
+}
+
+function removeBook(bookId) {
+    const idx = gBooks.findIndex(book => book.id === bookId)
+    gBooks.splice(idx, 1)
+}
+
+function updatePrice(bookId, UpdatePrice) {
+    const book = gBooks.find(book => book.id === bookId)
+    book.price = UpdatePrice
+}
+
+function addBook() {
+    const book = {
+        id: makeId(),
+        title: newTitle,
+        price: newPrice,
+        imgUrl: newTitle + '.jpg'
+    }
+    gBooks.unshift(book)  
 }
