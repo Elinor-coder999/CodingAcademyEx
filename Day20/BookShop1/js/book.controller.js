@@ -15,7 +15,7 @@ function renderBooksTable() {
                     <button class="read">Read</button>
                     <button class="update" onclick="onUpdateBook(event,'${book.id}')">Update</button>
                     <button class="delete" onclick="onRemoveBook(event,'${book.id}')">Delete</button>
-                     <button class="details" onclick="onShowBookDetails(event, '${book.id}')"> Details</button>
+                    <button class="details" onclick="onShowBookDetails(event, '${book.id}')"> Details</button>
                 </td>
             </tr>`)
 
