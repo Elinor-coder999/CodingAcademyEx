@@ -1,5 +1,5 @@
 'use strict'
-var gFilterby =''
+var gFilterby = ''
 
 function onInit() {
     renderBooksTable()
@@ -9,10 +9,20 @@ function onInit() {
 function renderBooksTable() {
     const elBooksTable = document.querySelector('.books.table')
     const books = getBooks(gFilterby)
+
+    if (books.length === 0) {
+        const elNoResults = document.querySelector('.no-results')
+        elNoResults.classList.remove('hidden')
+    }else{
+        const elNoResults = document.querySelector('.no-results')
+        elNoResults.classList.add('hidden')
+    }
+
     const strHtmls = books.map(book =>
         `   <tr>
              <td>${book.title}</td>
                 <td>${book.price}</td>
+                <td>${book.rating}</td>
                 <td>
                     <button class="read">Read</button>
                     <button class="update" onclick="onUpdateBook(event,'${book.id}')">Update</button>
@@ -40,7 +50,7 @@ function onUpdateBook(ev, bookId) {
 function onAddBook() {
     const newTitle = prompt('Enter the title of the book')
     const newPrice = prompt('Enter the price of the book')
-    addBook(newTitle,newPrice)
+    addBook(newTitle, newPrice)
     renderBooksTable()
 }
 
@@ -65,12 +75,12 @@ function onCloseModal() {
     elModal.classList.add('hidden')
 }
 
-function onFilter(elInput){
+function onFilter(elInput) {
     gFilterby = elInput.value
     renderBooksTable()
 }
 
-function onClearFilter(){
+function onClearFilter() {
     const elFilerBy = document.querySelector('.filter')
     gFilterby = elFilerBy.value = ''
     renderBooksTable()
