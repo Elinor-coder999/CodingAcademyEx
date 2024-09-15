@@ -6,13 +6,15 @@ var gBooks = []
 
 _createBooks()
 
-function getBooks(filterBy){
-   if (!filterBy) return gBooks
-   const filteredBooks = findBooksByTitle(filterBy)
-   return filteredBooks
+function getBooks(options = {}) {
+    const filterBy = options.filterBy
+    const sortBy = options.sortBy
+    var books = _filterBooks(filterBy)
+
+    return books
 }
 
-function getBooksById(bookId){
+function getBooksById(bookId) {
     return gBooks.find(book => book.id === bookId)
 }
 
@@ -32,11 +34,11 @@ function updatePrice(bookId, UpdatePrice) {
 
 function addBook(title, price) {
     const book = _createBook(title, price)
-    gBooks.unshift(book)  
+    gBooks.unshift(book)
     _saveBooks()
 }
 
-function _createBooks(){
+function _createBooks() {
     gBooks = loadFromStorage(BOOKS_KEY)
     if (gBooks && gBooks.length !== 0) return
     gBooks = []
@@ -48,21 +50,29 @@ function _createBooks(){
     _saveBooks()
 }
 
-function _createBook(title, price, imgUrl){
-    return  {
+function _createBook(title, price, imgUrl) {
+    return {
         id: makeId(),
         title,
         price,
         imgUrl: imgUrl || 'img/No_Image_Available.jpg',
-        rating: getRandomInt(1, 6)
+        rating: getRandomInt(1, 5)
     }
 }
 
-function _saveBooks(){
-    saveToStorage(BOOKS_KEY,gBooks)
+function _saveBooks() {
+    saveToStorage(BOOKS_KEY, gBooks)
 }
 
-function findBooksByTitle(filterBy){
-    const txt = filterBy.toLowerCase()
-    return gBooks.filter(book => book.title.toLowerCase().includes(txt))
+function _filterBooks(filterBy){
+    var books = gBooks.slice()
+
+    if(filterBy.txt){
+        const regex = new RegExp(filterBy.txt,'i')
+        books = books.filter(book => regex.test(book.title))
+    }
+    if(filterBy.rating){
+        books = books.filter(book => book.rating >= filterBy.rating)
+    }
+    return books
 }

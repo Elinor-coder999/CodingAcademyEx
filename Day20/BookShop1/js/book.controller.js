@@ -1,5 +1,11 @@
 'use strict'
-var gFilterby = ''
+// var gFilterby = ''
+
+const gQueryOptions = {
+    filterBy: { txt: '', rating: 0 },
+    sortBy: {},
+    page: { idx: 0, size: 5 },
+}
 
 function onInit() {
     renderBooksTable()
@@ -8,7 +14,7 @@ function onInit() {
 
 function renderBooksTable() {
     const elBooksTable = document.querySelector('.books.table')
-    const books = getBooks(gFilterby)
+    const books = getBooks(gQueryOptions)
 
     if (books.length === 0) {
         const elNoResults = document.querySelector('.no-results')
@@ -75,14 +81,22 @@ function onCloseModal() {
     elModal.classList.add('hidden')
 }
 
-function onFilter(elInput) {
-    gFilterby = elInput.value
-    renderBooksTable()
+function onSetFilterBy() {
+    const elTitle = document.querySelector('.filter-by .title')
+    const elRating = document.querySelector('.filter-by .rating')
+  
+    gQueryOptions.filterBy.txt = elTitle.value
+    gQueryOptions.filterBy.rating = +elRating.value
+  
+     renderBooksTable()
 }
 
 function onClearFilter() {
-    const elFilerBy = document.querySelector('.filter')
-    gFilterby = elFilerBy.value = ''
+    const elTitle = document.querySelector('.filter-by .title')
+    const elRating = document.querySelector('.filter-by .rating')  
+    elTitle.value = ''
+    elRating.value = ''
+
     renderBooksTable()
 }
 

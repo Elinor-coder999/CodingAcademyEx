@@ -15,9 +15,26 @@
         <h1>Book Shop</h1>
     </header>
 
-    <section> 
-        <input oninput="onFilter(this)" class="filter" type="text" placeholder="Enter Book Title">
-        <button onclick="onClearFilter()">Clear</button>
+    <section>
+        <legend> Filter & Sorting </legend>
+        <div class="filter-by">
+            <input class="title" oninput="onSetFilterBy()"  type="text" placeholder="Enter Book Title">
+            <button onclick="onClearFilter()">Clear</button>
+            <label>
+                <span>Rating:</span>
+                <select class="rating" onchange="onSetFilterBy(this)" >
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                </select>
+                 
+            </label>
+        </div>
+
+
     </section>
     <table>
         <thead>
@@ -25,16 +42,16 @@
                 <th>Title</th>
                 <th>Price</th>
                 <th>Rating</th>
-                <th>Action</th> 
+                <th>Action</th>
             </tr>
             <tr class="no-results hidden">
-                <td rowspan="4" colspan="4" class="no-book">No Books Found...</td>
+                <td rowspan="4" colspan="4" class="no-book">No Books Found</td>
             </tr>
         </thead>
         <tbody class="books table"></tbody>
     </table>
 
-    <button class="add" onclick="onAddBook()"> Add A Book</button>
+    <button class="add" onclick="onAddBook()"> Add A Book...</button>
 
     <section class="details-modal hidden">
         <pre></pre>
