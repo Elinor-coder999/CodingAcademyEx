@@ -1,5 +1,4 @@
 'use strict'
-// var gFilterby = ''
 
 const gQueryOptions = {
     filterBy: { txt: '', rating: 0 },
@@ -8,6 +7,7 @@ const gQueryOptions = {
 }
 
 function onInit() {
+    readQueryParams()
     renderBooksTable()
 }
 
@@ -38,6 +38,7 @@ function renderBooksTable() {
             </tr>`)
 
     elBooksTable.innerHTML = strHtmls.join('')
+    setQueryParams()
 }
 
 function onRemoveBook(ev, bookId) {
@@ -92,8 +93,12 @@ function onSetFilterBy() {
 }
 
 function onSetSortBy() {
-    const elSortField = document.querySelector('.sort-by .sort-field')    
+    const elSortField = document.querySelector('.sort-by .sort-field')
+    const elSortDir = document.querySelector('.sort-by .sort-dir')    
+    
     gQueryOptions.sortBy.sortField = elSortField.value
+    gQueryOptions.sortBy.sortDir = elSortDir.checked ? -1 : 1
+    
     // gQueryOptions.page.idx = 0
     renderBooksTable()
 }
@@ -105,5 +110,64 @@ function onClearFilter() {
     elRating.value = ''
 
     renderBooksTable()
+}
+
+function renderQueryParams() {
+    
+    document.querySelector('.title').value = gQueryOptions.filterBy.txt
+    document.querySelector('.rating').value = gQueryOptions.filterBy.rating
+    
+    const sortField = gQueryOptions.sortBy.sortField
+    const sortDir = +gQueryOptions.sortBy.sortDir
+
+    document.querySelector('.sort-by select').value = sortField || ''
+    document.querySelector('.sort-by input').checked = (sortDir === -1) ? true : false
+}
+
+function setQueryParams() {
+    const queryParams = new URLSearchParams()
+
+    queryParams.set('title', gQueryOptions.filterBy.txt)
+    queryParams.set('rating', gQueryOptions.filterBy.minSpeed)
+
+    if(gQueryOptions.sortBy.sortField) {
+        queryParams.set('sortField', gQueryOptions.sortBy.sortField)
+        queryParams.set('sortDir', gQueryOptions.sortBy.sortDir)
+    }
+
+    if(gQueryOptions.page) {
+        queryParams.set('pageIdx', gQueryOptions.page.idx)
+        queryParams.set('pageSize', gQueryOptions.page.size)
+    }
+
+    const newUrl = 
+        window.location.protocol + "//" + 
+        window.location.host + 
+        window.location.pathname + '?' + queryParams.toString()
+
+    window.history.pushState({ path: newUrl }, '', newUrl)
+}
+
+function readQueryParams() {
+    const queryParams = new URLSearchParams(window.location.search)
+    
+    gQueryOptions.filterBy = {
+        txt: queryParams.get('title') || '',
+        rating: +queryParams.get('rating') || 0
+    }
+
+    if(queryParams.get('sortField')) {
+        const prop = queryParams.get('sortField')
+        const dir = queryParams.get('sortDir')
+
+        gQueryOptions.sortBy.sortField = prop
+        gQueryOptions.sortBy.sortDir = dir
+    }
+
+    if(queryParams.get('pageIdx')) {
+        gQueryOptions.page.idx = +queryParams.get('pageIdx')
+        gQueryOptions.page.size = +queryParams.get('pageSize')
+    }
+    renderQueryParams()
 }
 
