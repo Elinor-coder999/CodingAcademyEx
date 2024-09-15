@@ -10,6 +10,15 @@ function getBooks(options = {}) {
     const filterBy = options.filterBy
     const sortBy = options.sortBy
     var books = _filterBooks(filterBy)
+    if(sortBy.sortField === 'price') {
+       books.sort((b1, b2) => b1.price.localeCompare(b2.price) * sortBy.sortDir)
+    } else if(sortBy.sortField === 'rating'){
+        books.sort((b1, b2) => (b1.rating - b2.rating) * sortBy.sortDir)
+    }
+
+    // const startIdx = page.idx * page.size
+    // console.log(page.idx, startIdx)
+    // books = books.slice(startIdx, startIdx + page.size)
 
     return books
 }

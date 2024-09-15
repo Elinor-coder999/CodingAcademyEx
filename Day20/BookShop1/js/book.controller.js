@@ -3,7 +3,7 @@
 
 const gQueryOptions = {
     filterBy: { txt: '', rating: 0 },
-    sortBy: {},
+    sortBy: { sortField: '', sortDir: 1 },
     page: { idx: 0, size: 5 },
 }
 
@@ -89,6 +89,13 @@ function onSetFilterBy() {
     gQueryOptions.filterBy.rating = +elRating.value
   
      renderBooksTable()
+}
+
+function onSetSortBy() {
+    const elSortField = document.querySelector('.sort-by .sort-field')    
+    gQueryOptions.sortBy.sortField = elSortField.value
+    // gQueryOptions.page.idx = 0
+    renderBooksTable()
 }
 
 function onClearFilter() {
