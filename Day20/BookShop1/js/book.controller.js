@@ -52,7 +52,8 @@ function onShowBookDetails(ev, bookId) {
     elDetails.innerText = `
         id:${bookId},
         title:${book.title}'
-        price:${book.price}
+        price:${book.price},
+        rating:${book.rating}
     `
     const elImg = document.querySelector('.book-img img')
     elImg.src = book.imgUrl

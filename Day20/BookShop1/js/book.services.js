@@ -54,6 +54,7 @@ function _createBook(title, price, imgUrl){
         title,
         price,
         imgUrl: imgUrl || 'img/No_Image_Available.jpg',
+        rating: getRandomInt(1, 6)
     }
 }
 
