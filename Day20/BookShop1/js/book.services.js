@@ -6,10 +6,10 @@ var gBooks = []
 
 _createBooks()
 
-
-
-function getBooks(){
-    return gBooks
+function getBooks(filterBy){
+   if (!filterBy) return gBooks
+   const filteredBooks = findBooksByTitle(filterBy)
+   return filteredBooks
 }
 
 function getBooksById(bookId){
@@ -30,7 +30,7 @@ function updatePrice(bookId, UpdatePrice) {
 
 }
 
-function addBook() {
+function addBook(title, price) {
     const book = _createBook(title, price)
     gBooks.unshift(book)  
     _saveBooks()
@@ -40,20 +40,28 @@ function _createBooks(){
     gBooks = loadFromStorage(BOOKS_KEY)
     if (gBooks && gBooks.length !== 0) return
     gBooks = []
-    gBooks.push(_createBook('The adventures of Lori Ipsi', 120))
+    gBooks.push(_createBook('The Handmaid Tale', 120, 'img/handmaid.jpg'))
+    gBooks.push(_createBook('Harry Potter & The Goblet of Fire', 150, 'img/harry potter.jpg'))
+    gBooks.push(_createBook('The Hunger Games', 81, 'img/hungergames.jpg'))
+
 
     _saveBooks()
 }
 
-function _createBook(title, price){
+function _createBook(title, price, imgUrl){
     return  {
         id: makeId(),
         title,
         price,
-        imgUrl: title +'.jpg'
+        imgUrl: imgUrl || 'img/No_Image_Available.jpg',
     }
 }
 
 function _saveBooks(){
     saveToStorage(BOOKS_KEY,gBooks)
+}
+
+function findBooksByTitle(filterBy){
+    const txt = filterBy.toLowerCase()
+    return gBooks.filter(book => book.title.toLowerCase().includes(txt))
 }

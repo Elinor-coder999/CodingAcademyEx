@@ -15,11 +15,10 @@
         <h1>Book Shop</h1>
     </header>
 
-    <section class="filter">
-        <form onsubmit="filterBooks()"></form>
-        <input type="text" id="search-input" placeholder="Search for a book...">
+    <section> 
+        <input oninput="onFilter(this)" class="filter" type="text" placeholder="Enter Book Title">
+        <button onclick="onClearFilter()">Clear</button>
     </section>
-
     <table>
         <thead>
             <tr class="title">
@@ -35,10 +34,13 @@
 
     <section class="details-modal hidden">
         <pre></pre>
+        <div class="book-img">
+            <img src="" alt="">
+        </div>
         <button onclick="onCloseModal()">x</button>
     </section>
 
+    <script src="js/utilities.js"></script>
     <script src="js/storage.service.js"></script>
     <script src="js/book.services.js"></script>
     <script src="js/book.controller.js"></script>
-    <script src="js/utilities.js"></script>

@@ -1,4 +1,5 @@
 'use strict'
+var gFilterby =''
 
 function onInit() {
     renderBooksTable()
@@ -7,7 +8,8 @@ function onInit() {
 
 function renderBooksTable() {
     const elBooksTable = document.querySelector('.books.table')
-    const strHtmls = gBooks.map(book =>
+    const books = getBooks(gFilterby)
+    const strHtmls = books.map(book =>
         `   <tr>
              <td>${book.title}</td>
                 <td>${book.price}</td>
@@ -38,18 +40,22 @@ function onUpdateBook(ev, bookId) {
 function onAddBook() {
     const newTitle = prompt('Enter the title of the book')
     const newPrice = prompt('Enter the price of the book')
+    addBook(newTitle,newPrice)
     renderBooksTable()
 }
 
 function onShowBookDetails(ev, bookId) {
     ev.stopPropagation()
     const elModal = document.querySelector('.details-modal')
-    const elDetails = document.querySelector('pre')
-
     const book = getBooksById(bookId)
-    const bookJson = JSON.stringify(book, null, 2)
-
-    elDetails.innerText = bookJson
+    const elDetails = document.querySelector('pre')
+    elDetails.innerText = `
+        id:${bookId},
+        title:${book.title}'
+        price:${book.price}
+    `
+    const elImg = document.querySelector('.book-img img')
+    elImg.src = book.imgUrl
     elModal.classList.remove('hidden')
 }
 
@@ -58,7 +64,14 @@ function onCloseModal() {
     elModal.classList.add('hidden')
 }
 
-function filterBooks(ev) {
-    const elInput = document.querySelector('.search-input')
-    console.log(elInput)
+function onFilter(elInput){
+    gFilterby = elInput.value
+    renderBooksTable()
 }
+
+function onClearFilter(){
+    const elFilerBy = document.querySelector('.filter')
+    gFilterby = elFilerBy.value = ''
+    renderBooksTable()
+}
+
