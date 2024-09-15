@@ -99,7 +99,7 @@ function onSetSortBy() {
     gQueryOptions.sortBy.sortField = elSortField.value
     gQueryOptions.sortBy.sortDir = elSortDir.checked ? -1 : 1
     
-    // gQueryOptions.page.idx = 0
+    gQueryOptions.page.idx = 0
     renderBooksTable()
 }
 
@@ -128,7 +128,7 @@ function setQueryParams() {
     const queryParams = new URLSearchParams()
 
     queryParams.set('title', gQueryOptions.filterBy.txt)
-    queryParams.set('rating', gQueryOptions.filterBy.minSpeed)
+    queryParams.set('rating', gQueryOptions.filterBy.rating)
 
     if(gQueryOptions.sortBy.sortField) {
         queryParams.set('sortField', gQueryOptions.sortBy.sortField)
