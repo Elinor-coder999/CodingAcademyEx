@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -50,9 +49,11 @@ h1 {
     grid-template-columns: 460px;
     grid-template-rows: 3fr 5fr 3fr;
 
-    position: relative; /* ? */
-    
-    background-color: darkgray; /* ? */
+    position: relative;
+    /* ? */
+
+    background-color: darkgray;
+    /* ? */
     text-transform: uppercase;
     color: whitesmoke;
 }
@@ -60,11 +61,12 @@ h1 {
 /* The card image */
 
 .card img {
-    grid-area: 1 / 1 / -1 / -1; /* ? */
+    grid-area: 1 / 1 / -1 / -1;
+    /* ? */
     transition: var(--duration-short) ease-out;
 }
 
-.card img:hover{
+.card img:hover {
     opacity: 0.6;
 }
 
@@ -73,12 +75,13 @@ h1 {
 /* The card title */
 
 .card h2 {
-    position: relative;  /* ? */
+    position: relative;
+    /* ? */
     top: 0;
-    
+
     grid-area: 1 / 1;
     align-self: end;
-    text-align: end; 
+    text-align: end;
 
     margin: 0 1em;
 
@@ -87,9 +90,8 @@ h1 {
     transition: var(--duration-short) ease-out;
 }
 
-.card h2 span{
+.card h2 span {
     font-weight: 900;
-
 }
 
 .card:hover h2 {
@@ -98,9 +100,24 @@ h1 {
 
 /* TODO: Make the title slide up 20px when the card is hovered. */
 
+.card h2::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 0px;
 
+    width: 400px;
+    height: 5px;
 
+    background-color: white;
+    opacity: 0;
 
+    transition: var(--duration-short) ease-in-out;
+}
+
+.card:hover h2::after {
+    opacity: 1;
+}
 
 /* TODO: Use a pseudo element to give the title a 5px wide line under it.
    The line should run the full width of the card with 32px margins on both sides
@@ -111,35 +128,78 @@ h1 {
 
 .toolbar {
     display: grid;
-    grid-auto-flow: column;  /* ?? */
-    grid-auto-columns: 50px; /* ?? */
+    grid-auto-flow: column;
+    /* ?? */
+    grid-auto-columns: 50px;
+    /* ?? */
     place-items: center;
 
     grid-area: 2 / 1;
     place-self: start;
 
-    position: absolute; /* ? */
-    right: 80px;        
-    
-    width: 0; /* ?? */
+    position: absolute;
+    /* ? */
+    right: 80px;
+
+    width: 0;
+    /* ?? */
     opacity: 0;
-    
+
     padding: 8px;
     background: linear-gradient(to right, whitesmoke, transparent);
     margin-block-start: 3px;
     color: darkgray;
-    
+
     transition: var(--duration-short) ease-out;
 }
+
 .card:hover .toolbar {
     transition-delay: var(--delay-short);
     opacity: 1;
     right: var(--margin-inline);
-    width: calc(var(--image-width) - var(--margin-inline) * 2); /* ?? */
+    width: calc(var(--image-width) - var(--margin-inline) * 2);
+    /* ?? */
+}
+
+.icon {
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.icon:hover {
+    scale: 1.3;
 }
 
 /* TODO: Add styling to the toolbar icons */
 /* When they hovered, scale them up by 30% & give them a pink color */
+.fa-heart:hover {
+    color: red;
+    animation: heartBeat 900ms;
+}
+
+.fa-gripfire:hover {
+    
+    color: rgb(235, 129, 7);
+    animation: bounce 900ms ;
+}
+.fa-thumbs-up:hover{
+    color: rgb(24, 42, 204);
+    animation: wobble 900ms ;
+}
+
+.fa-circle-play:hover {
+    color: red;
+    animation: heartBeat 900ms;
+}
+
+.fa-radio:hover {
+    color: rgb(235, 129, 7);
+    animation: bounce 900ms;
+}
+.fa-volume-high:hover{
+    color: rgb(24, 42, 204);
+    animation: wobble 900ms ;
+}
 /* Add a different animation from animate.css to each one.
    The animations should be triggered 600ms after the hover state starts, 
    and run one cycle lasting 600ms */
