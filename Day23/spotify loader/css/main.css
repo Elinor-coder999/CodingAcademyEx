@@ -10,7 +10,7 @@ body{
 .loader {
     position: absolute;
     top: 50%;
-    left: 45%;
+    left: 35%;
     translate: -60px -60%;
 }
 
