@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --margin-inline: 32px;
+    --image-width: 460px;
+
+    --duration-short: 360ms;
+    --delay-short: 150ms;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #444;
+}
+
+h1 {
+    margin-block-start: 70px;
+    text-align: center;
+    color: rgb(137, 136, 136);
+    font-weight: 100;
+}
+
+.card-container {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    margin: 100px auto;
+}
+
+/************************ Start Here ************************
+
+    Implement the TODO's one by one 
+
+    When you see a question mark ? next to a CSS rule, you
+    should try to understand what the purpose of that rule is.
+    
+    Two question marks ?? indicate a more advanced concept.
+    But give these a minute as well and try to figure out 
+    what their purpose is.
+
+************************************************************/
+
+/* The .card container */
+
+.card {
+    display: grid;
+    grid-template-columns: 460px;
+    grid-template-rows: 3fr 5fr 3fr;
+
+    position: relative; /* ? */
+    
+    background-color: darkgray; /* ? */
+    text-transform: uppercase;
+    color: whitesmoke;
+}
+
+/* The card image */
+
+.card img {
+    grid-area: 1 / 1 / -1 / -1; /* ? */
+    transition: var(--duration-short) ease-out;
+}
+
+/* TODO: Make the image semi transparent when the card is hovered */
+
+/* The card title */
+
+.card h2 {
+    position: relative; /* ? */
+    top: 0;
+    
+    grid-area: 1 / 1;
+    align-self: end;
+    text-align: end; 
+
+    margin: 0 1em;
+
+    font-size: 32px;
+    font-weight: 100;
+    transition: var(--duration-short) ease-out;
+}
+
+.card h2 span{
+    font-weight: 900;
+}
+
+/* TODO: Make the title slide up 20px when the card is hovered. */
+
+/* TODO: Use a pseudo element to give the title a 5px wide line under it.
+   The line should run the full width of the card with 32px margins on both sides
+   This line should only become visible when the card is hovered,
+   by sliding in from the bottom and transitioning in opacity */
+
+/* The toolbar */
+
+.toolbar {
+    display: grid;
+    grid-auto-flow: column;  /* ?? */
+    grid-auto-columns: 50px; /* ?? */
+    place-items: center;
+
+    grid-area: 2 / 1;
+    place-self: start;
+
+    position: absolute; /* ? */
+    right: 80px;        
+    
+    width: 0; /* ?? */
+    opacity: 0;
+    
+    padding: 8px;
+    background: linear-gradient(to right, whitesmoke, transparent);
+    margin-block-start: 3px;
+    color: darkgray;
+    
+    transition: var(--duration-short) ease-out;
+}
+.card:hover .toolbar {
+    transition-delay: var(--delay-short);
+    opacity: 1;
+    right: var(--margin-inline);
+    width: calc(var(--image-width) - var(--margin-inline) * 2); /* ?? */
+}
+
+/* TODO: Add styling to the toolbar icons */
+/* When they hovered, scale them up by 30% & give them a pink color */
+/* Add a different animation from animate.css to each one.
+   The animations should be triggered 600ms after the hover state starts, 
+   and run one cycle lasting 600ms */
+
+/* The card paragraph */
+
+/* TODO: The paragraph should be aligned to the right and top and should 
+   only become visible when the card is hovered by sliding in 
+   from the bottom and transitioning in opacity */
+
+.card p {
+    grid-area: 3 / 1;
+}
