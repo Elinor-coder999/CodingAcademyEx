@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -63,12 +64,16 @@ h1 {
     transition: var(--duration-short) ease-out;
 }
 
+.card img:hover{
+    opacity: 0.6;
+}
+
 /* TODO: Make the image semi transparent when the card is hovered */
 
 /* The card title */
 
 .card h2 {
-    position: relative; /* ? */
+    position: relative;  /* ? */
     top: 0;
     
     grid-area: 1 / 1;
