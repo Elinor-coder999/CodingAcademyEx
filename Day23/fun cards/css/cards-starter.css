@@ -212,4 +212,18 @@ h1 {
 
 .card p {
     grid-area: 3 / 1;
+    position: absolute;
+
+    top: 20px;
+    right: 0px;
+
+    opacity: 0;
+    width: calc(var(--image-width) - var(--margin-inline) * 2); 
+
+    transition: var(--delay-short);
+}
+
+.card:hover p{
+    top: 0;
+    opacity: 1;
 }
