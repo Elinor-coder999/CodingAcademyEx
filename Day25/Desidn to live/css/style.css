@@ -1,0 +1,10 @@
+/*SET UP*/
+@import url('setup/var.css');
+@import url('setup/typography.css');
+
+/*BASIC*/
+@import url('basics/base.css');
+@import url('basics/layouts.css');
+@import url('basics/helpers.css');
+
+/*COMPONENTS*/
