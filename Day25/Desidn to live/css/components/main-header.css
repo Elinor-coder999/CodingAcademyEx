@@ -1,0 +1,16 @@
+.main-header{
+    display: flex;
+    background-color: #292929;
+
+}
+
+.header-logo{
+    font-family: eurofurence;
+    color: #ffffff;
+    font-size: 1.875em;
+    letter-spacing: -0.03333;
+}
+
+
+
+
