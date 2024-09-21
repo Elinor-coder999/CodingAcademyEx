@@ -1,3 +1,5 @@
+/*main layout*/
+
 .main-layout {
     display: grid;
     grid-template-columns: minmax(var(--layout-padding), 1fr) minmax(auto, var(--break-l)) minmax(var(--layout-padding), 1fr)
@@ -6,3 +8,26 @@
 .main-layout>* {
     grid-column: 2;
 }
+
+/*card layout*/
+
+.card-layout {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 80px;
+    column-gap: 40px;
+}
+
+.card-layout>* {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: subgrid;
+}
+
+.card-layout>* .card-image{
+    grid-column: 1;
+} 
+
+.card-layout>* .card-content {
+    grid-column: 3;
+} 
