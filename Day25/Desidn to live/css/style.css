@@ -8,4 +8,5 @@
 @import url('basics/helpers.css');
 
 /*COMPONENTS*/
-@import url('components/main-header.css')
+@import url('components/main-header.css');
+@import url('components/main-nav.css')
