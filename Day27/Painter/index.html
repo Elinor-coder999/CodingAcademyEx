@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload=" onInit()">
+    <div class="canvas-container">
+        <canvas width="1484" height="1732" ></canvas>
+    </div>
+    <div class="nav-bar" style="position: absolute; top: 0px; left: 95px;">
+        <select id="color-selector">
+            <option id="0">black</option>
+            <option id="1">red</option>
+            <option id="2">blue</option>
+            <option id="3">pink</option>
+            <option id="4">random</option>
+        </select> 
+        <select id="shape-selector">
+            <option id="0">line</option>
+            <option id="1">circle</option>
+            <option id="2">triangle</option>
+            <option id="3">rectangle</option>
+            <option id="4">pencil</option>
+           
+        </select> 
+        <clear class="button"  onclick="onClearCanvas()">Clear</clear> | 
+        <div class="inputs">
+            <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" /><br>
+            <form action="" method="POST" enctype="multipart/form-data" onsubmit="onUploadImg(event)">
+                <input name="img" id="imgData" type="hidden" />
+                <button class="btn" type="submit">Upload to Cloudinary</button>
+            </form>
+            <div class="share-container"></div>
+            <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download Image from Canvas</a>
+        </div>
+    </div>
+
+<script src="js/main.js"></script>
+ <script src="js/upload.service.js"></script>
+
+
+</body>
+
+
+ 
+ </html>

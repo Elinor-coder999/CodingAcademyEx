@@ -1,0 +1,14 @@
+.pagination {
+    color: var(--clr-pagination);
+    text-transform: uppercase;
+    font-size: 1.125em;
+    letter-spacing: 1px;
+
+    padding: 1.77778em;
+    word-spacing: 0.1em;
+    border-top: solid 1px var(--clr-content-border);
+}
+
+.pagination article:hover {
+    animation: pulse 1s;
+}

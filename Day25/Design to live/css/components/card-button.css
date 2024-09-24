@@ -1,0 +1,13 @@
+.card .card-content .card-button {
+    color: gray;
+    padding: 8px 23px;
+    border: 2px solid gray;
+    border-radius: 25px;
+    font-family: 'lato', sans-serif;
+}
+
+.card-button:hover {
+    cursor: pointer;
+    color: green;
+    background-color: transparent;
+}

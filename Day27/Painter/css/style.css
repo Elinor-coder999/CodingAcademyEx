@@ -1,0 +1,50 @@
+*{
+    color:#444;
+    font-family: monospace;
+    font-size: px;
+}
+
+body{
+    margin: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;  
+    height: 100vh; 
+    cursor: crosshair; 
+}
+
+select{ 
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.nav-bar{
+    background-color:pink;
+    padding: 5px 20px;
+    text-transform: uppercase;
+   
+    cursor: default;
+}
+
+.input{
+    background-color:pink;
+    padding: 5px 10px;
+    text-transform: uppercase;
+   
+    cursor: default;
+
+}
+
+.button{
+    padding: 2px;
+    cursor: pointer;
+}
+
