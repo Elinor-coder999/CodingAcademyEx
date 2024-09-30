@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(41, 112, 47);
+    width: 90%;
+    padding: 20px;
+    margin: 60px 60px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 40px;
+}
+
+h1 {
+   font-size:50px;
+    color: white;
+    text-transform: uppercase;  
+}
+
+
+h2 {
+    opacity:0.5;  
+}
+
+.bar {
+    height: 50px;
+    width: 80%;
+    text-align: center;
+    align-self: center;
+    border-radius: 30px;
+    font-size: large;
+
+}
