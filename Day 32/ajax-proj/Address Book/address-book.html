@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/addressbook.css" />
+		<title>Address Book</title>
+	</head>
+    <body onload="onInIt()">
+        <h1>Address Book</h1>
+		<label for="number of cards">Number Of Cards</label>
+		<input onchange = "onGetCards(this.value)" type="number" name="cards-number" min="1" max="10">
+
+		<section class="cards-container hidden">
+		</section>
+    </body>
+
+	<script src="address.book.service.js"></script>
+	<script src="address.books.controller.js"></script>
+
+
