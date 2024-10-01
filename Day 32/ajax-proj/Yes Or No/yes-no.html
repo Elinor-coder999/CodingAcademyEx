@@ -7,21 +7,21 @@
         <link rel="stylesheet" href="css/yesno.css">
         <title>yesno</title>
     </head>
-    <body>
+    <body onload="onInIt()">
         <section class="question-container">
         <h1>Ask anything</h1>
         <h2>Yes/No</h2>
-        <input onclick="onAsk()" class="bar" type="text" placeholder="Your Question" pattern=".{3,}" required>
+        <input onchange="onAsk()" class="bar" type="text" placeholder="Your Question" pattern=".{3,}\?$" >
     </section>
 
         <section class="answer">
             <h2></h2>
-            <!-- <img onload="showAns()" src="" alt=""> -->
+            <img onload="showAns()" src="" alt="">
         </section>
 
-        <!-- <img src="img/loader.svg" alt="A loader" class="loader hidden"> -->
+        <img src="img/loader.svg" alt="A loader" class="loader hidden">
 
-        <!-- <script src="lib/jquery-3.7.1.js"></script> -->
+        
 
         <script src="lib/jquery-3.7.1.js"></script>
 

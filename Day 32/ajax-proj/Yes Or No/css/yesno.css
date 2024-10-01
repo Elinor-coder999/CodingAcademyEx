@@ -34,3 +34,7 @@ h2 {
     font-size: large;
 
 }
+
+.hidden{
+    display:none;
+}

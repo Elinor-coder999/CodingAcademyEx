@@ -1,14 +1,13 @@
 'use strict'
 
 function getAns(cb) {
-    const xhr = new XMLHttpRequest()
+    $.get('https://yesno.wtf/api', cb)
+}
 
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            const ans = JSON.parse(xhr.responseText)
-            cb(ans)
-        }
-    }
-    xhr.open('GET', 'https://yesno.wtf/api', true)
-    xhr.send()
+function getJoke (cb) {
+    $.get('https://api.chucknorris.io/jokes/random', cb)
+}
+
+function getDog (cb) {
+    $.get('https://dog.ceo/api/breeds/image/random',cb)
 }

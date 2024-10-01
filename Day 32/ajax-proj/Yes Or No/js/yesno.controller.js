@@ -1,5 +1,10 @@
 'use strict'
 
+function onInIt(){
+    console.log('hey');
+    
+}
+
 function onAsk() {
     hideAns()
     getAns(renderAns)
