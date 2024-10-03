@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    background-color: #c084fc;
+    border: none;
+    border-radius: 0.2em;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  
+    font-weight: 600;
+  }
+  
+  .btn:hover {
+    background-color: #6b21a8;
+    color: whitesmoke;
+  }
+  
+  .btn-primary {
+    background-color: #0ea5e9;
+  }
+  
+  .btn.btn-primary:hover {
+    background-color: #075985;
+  }
+  
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.genres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 50px;
+    gap: 0.5em;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.5em;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.card {
+    background-color: #eeeeee;
+    padding: 2em;
+    border-radius: 0.5em;
+    transition: 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(103%);
+}
+
+.card .venue {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.card .location {
+    font-size: 0.9em;
+}
+
+.card .stats {
+    font-size: 1.5em;
+}
+
+.card .stats p:last-of-type {
+    font-size: 0.7em;
+}
+
+.card .content .header {
+    margin: 0 !important;
+    justify-content: start;
+}
+  
