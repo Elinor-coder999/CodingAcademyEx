@@ -1,35 +1,25 @@
 'use strict'
 
-function onInIt(){
-    console.log('hey');
-    
+function onQuestionAsked(ev) {
+    ev.preventDefault()
+    getAnswer(renderAnswer)
 }
 
-function onAsk() {
-    hideAns()
-    getAns(renderAns)
+function renderAnswer({ answer, image }) {
+    const strHTML = `
+        <h1>${answer}<h1>
+        <img src=${image}
+    `
+    document.querySelector('.answer-container').innerHTML = strHTML
+
+    if (answer === 'yes') getJoke(renderJoke)
+        else getDog(renderDog)
 }
 
-function renderAns(ans) {
-    const elAns = document.querySelector('.answer h2')
-    elAns.innerText = ans.answer
-
-    const elImg = document.querySelector('.answer img')
-    elImg.src = ans.image   // Generate another network request fot the image
+function renderJoke ({value}){
+    document.querySelector('.joke-or-dog').innerHTML = `<h1>${value}<h1>`
 }
 
-function showAns() {
-    const elAns = document.querySelector('.answer')
-    elAns.classList.remove('hidden')
-    
-    const elLoader = document.querySelector('.loader')
-    elLoader.classList.add('hidden')
-}
-
-function hideAns() {
-    const elAns = document.querySelector('.answer')
-    elAns.classList.add('hidden')
-    
-    const elLoader = document.querySelector('.loader')
-    elLoader.classList.remove('hidden')
+function renderDog(imgUrl){
+    document.querySelector('.joke-or-dog').innerHTML = `<img src="${imgUrl}">`
 }

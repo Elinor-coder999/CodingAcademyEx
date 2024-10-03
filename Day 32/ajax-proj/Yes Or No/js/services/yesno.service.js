@@ -1,13 +1,18 @@
 'use strict'
+'use strict'
 
-function getAns(cb) {
-    $.get('https://yesno.wtf/api', cb)
+const YES_NO_URL = 'https://yesno.wtf/api'
+const JOKE_URL = 'https://api.chucknorris.io/jokes/random'
+const DOG_URL = 'https://dog.ceo/api/breeds/image/random'
+
+function getAnswer(onSuccess) {
+    $.get(YES_NO_URL, onSuccess)
 }
 
-function getJoke (cb) {
-    $.get('https://api.chucknorris.io/jokes/random', cb)
+function getJoke(onSuccess) {
+    $.get(JOKE_URL, onSuccess)
 }
 
-function getDog (cb) {
-    $.get('https://dog.ceo/api/breeds/image/random',cb)
+function getDog(onSuccess) {
+    $.get(DOG_URL, (res) => onSuccess(res.message))
 }

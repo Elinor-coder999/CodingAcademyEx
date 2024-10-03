@@ -7,25 +7,23 @@
         <link rel="stylesheet" href="css/yesno.css">
         <title>yesno</title>
     </head>
-    <body onload="onInIt()">
-        <section class="question-container">
+    <body>
+    <section class="question-container">
         <h1>Ask anything</h1>
         <h2>Yes/No</h2>
-        <input onchange="onAsk()" class="bar" type="text" placeholder="Your Question" pattern=".{3,}\?$" >
+        <form onsubmit="onQuestionAsked(event)"  class="form">
+            <input
+            class="user-query" 
+            type="text" 
+            placeholder="Your Question" 
+            pattern="(^[A-z]{3,}\?$)" />
     </section>
 
-        <section class="answer">
-            <h2></h2>
-            <img onload="showAns()" src="" alt="">
-        </section>
+    <section class="answer-container container"></section>
+    <section class="joke-or-dog container"></section>
 
-        <img src="img/loader.svg" alt="A loader" class="loader hidden">
-
-        
-
-        <script src="lib/jquery-3.7.1.js"></script>
-
-        <script src="js/services/yesno.service.js"></script>
-        <script src="js/yesno.controller.js"></script>
+    <script src="lib/jquery-3.7.1.js"></script>
+    <script src="js/services/yesno.service.js"></script>
+    <script src="js/yesno.controller.js"></script>
     </body>
 </html>
