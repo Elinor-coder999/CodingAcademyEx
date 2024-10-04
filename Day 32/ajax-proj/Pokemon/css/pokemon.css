@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container{
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.card{
+  background-color: aquamarine;
+  padding:2em;
+  border-radius: 0.5em;  
+}
+
+@media(min-width:576){
+    .container{
+        max-width: 540px;
+    }
+}
+@media(min-width:768px){
+    .container{
+        max-width: 720px;
+    }
+}
+
+@media(min-width:992px){
+    .container{
+        max-width: 960px;;
+    }
+}
+@media(min-width:1200px){
+    .container{
+        max-width: 1140px;;
+    }
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
